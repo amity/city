@@ -1,0 +1,36 @@
+h1 {color: lightcoral}
+html, body {min-height: 80%}
+body {
+    background-color: #ffebcd;
+    border: 3px hotpink dotted;
+}
+
+.split {
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+footer {margin-top: 15%; margin-bottom: 20px;}
+#badges {text-align: center;}
+
+a {text-decoration: none}
+a:hover {text-decoration: underline salmon; text-decoration:dashed}
+div > h2 > a:hover {
+    /* thx @JBPrice */
+    background-image: url("assets/squiggle.svg");
+    padding-bottom: 2px;
+}
+
+#home-btn {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px gray solid;
+    box-shadow: 4px 5px;
+}
+#home-link {color: #551A8B}
+#home-link:active {color: #ee0000}
