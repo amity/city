@@ -12,25 +12,46 @@ body {
     text-align: center;
 }
 
-footer {margin-top: 15%; margin-bottom: 20px;}
-#badges {text-align: center;}
+footer {margin-top: 15%; margin-bottom: 15px; text-align: center;}
+#badges {margin: 15px;}
 
 a {text-decoration: none}
 a:hover {text-decoration: underline salmon; text-decoration:dashed}
-div > h2 > a:hover {
+h2 > a:hover, h3 > a:hover {
     /* thx @JBPrice */
+    background-image: url("assets/squiggle.svg");
+    padding-bottom: 2px;
+} .squiggle:hover {
     background-image: url("assets/squiggle.svg");
     padding-bottom: 2px;
 }
 
-#home-btn {
+.corner-link {color: #551A8B}
+.corner-link:active {color: #ee0000}
+.corner-btn {
     width: 64px;
     height: 64px;
     position: absolute;
-    margin-left: 10px;
-    margin-top: 10px;
     border: 1px gray solid;
     box-shadow: 4px 5px;
+    margin-top: 10px;
 }
-#home-link {color: #551A8B}
-#home-link:active {color: #ee0000}
+#left-btn {margin-left: 10px}
+#right-btn {right: 15px; margin-right: 10px}
+
+
+
+.friend-card {
+    background-color: oldlace;
+    box-shadow: 5px 5px #551A8B;
+    margin: auto;
+    padding: 15px;
+    width: fit-content;
+    border: 1px black solid;
+} .friend-card:hover {
+    box-shadow: 5px 5px black;
+    background-color: mistyrose;
+} .friend-card:hover .squiggle {
+    background-image: url("assets/squiggle.svg");
+    padding-bottom: 2px;
+}
