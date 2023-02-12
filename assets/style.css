@@ -23,10 +23,10 @@ a {text-decoration: none}
 a:hover {text-decoration: underline salmon; text-decoration:dashed}
 h2 > a:hover, h3 > a:hover {
     /* thx @JBPrice */
-    background-image: url("assets/squiggle.svg");
+    background-image: url("squiggle.svg");
     padding-bottom: 2px;
 } .squiggle:hover {
-    background-image: url("assets/squiggle.svg");
+    background-image: url("squiggle.svg");
     padding-bottom: 2px;
 }
 
@@ -55,7 +55,7 @@ h2 > a:hover, h3 > a:hover {
     box-shadow: 5px 5px black;
     background-color: mistyrose;
 } .friend-card:hover .squiggle {
-    background-image: url("assets/squiggle.svg");
+    background-image: url("squiggle.svg");
     padding-bottom: 2px;
 } .friend-card img {
     max-height: 320px;
