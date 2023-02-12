@@ -10,9 +10,70 @@
     <a href="/" class="corner-link"><img class="corner-btn" id="left-btn" src="assets/img/home.png" alt="home"></a>
     <a href="mailto:sophie@amity.city" class="corner-link"><img class="corner-btn" id="right-btn" src="assets/img/mail.png" alt="send me an email"></a>
 
-    <div style="text-align: center">
+    <div style="text-align: center; margin-bottom: 10px;">
         <h1>zines</h1>
-        <h3>data haunting: a digital ghost story</h3>
-        <h2><a href="assets/zines/">printable PDFs</a></h2>
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
+            <div><a href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a href="assets/zines/assembly-instructions.pdf">assembly</a></div>
+            <button id="toggle-dh-reader" display="block" onclick="toggleReader()">read</button><br/>
+            <i id="print-disclaimer">(it's better if you print it out though!)</i> 
+            <div id="dh-reader" style="display: none">
+                <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.jpg"/>
+                <br />
+                <button id="dh-reader-prev" onclick="changePage(-1)" disabled>&#9664;</button>
+                <button id="dh-reader-next" onclick="changePage(1)">&#9654;</button>
+            </div>
+        </div>
+        <h2><a href="https://github.com/amity/city/tree/main/assets/zines">all files</a></h2>
+        ...
+        <div id="zine-files"></div>
     </div>
+
+    <script>
+        // inline zine reader
+        const toggleButton = document.getElementById('toggle-dh-reader');
+        const dataHauntingReader = document.getElementById('dh-reader');
+        const dataHauntingDisplay = document.getElementById('dh-reader-display');
+        const prevBtn = document.getElementById('dh-reader-prev');
+        const nextBtn = document.getElementById('dh-reader-next');
+
+        const toggleReader = () => {
+            if(dataHauntingReader.style.display == 'none'){
+                dataHauntingReader.style.display = "inline-block";
+                toggleButton.innerHTML = 'hide reader';
+                document.getElementById('print-disclaimer').style.display = 'none';
+            } else {
+                dataHauntingReader.style.display = 'none';
+                toggleButton.innerHTML = 'show reader';
+            }
+        };
+
+        let pageNumber = 0;
+        const pageSource = (pageNum) => `assets/zines/dh-pics/${pageNum}.jpg`;
+
+        const changePage = (increment) => {
+            pageNumber += increment;
+            dataHauntingDisplay.src = pageSource(pageNumber);
+            if(pageNumber == '6') nextBtn.disabled = true;
+            else if (pageNumber == '0') prevBtn.disabled = true;
+            else {nextBtn.disabled = false; prevBtn.disabled = false;} 
+        };
+
+
+        // repo files population
+        // thanks to https://stackoverflow.com/a/53218452
+        (async () => {
+            const response = await fetch('https://api.github.com/repos/amity/city/contents/assets/zines');
+            const data = await response.json();
+            let htmlString = '<div>';
+            
+            for (let file of data) {
+                htmlString += `<a href="${file.path}">${file.name}</a><br />`;
+            }
+
+            htmlString += '</div>';
+            document.getElementById('zine-files').innerHTML = htmlString;
+        })();
+    </script>
+
 </body>
