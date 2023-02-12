@@ -12,6 +12,10 @@ body {
     text-align: center;
 }
 
+.centered {
+    text-align: center;
+}
+
 footer {margin-top: 15%; margin-bottom: 15px; text-align: center;}
 #badges {margin: 15px;}
 
@@ -39,13 +43,12 @@ h2 > a:hover, h3 > a:hover {
 #left-btn {margin-left: 10px}
 #right-btn {right: 15px; margin-right: 10px}
 
-
-
 .friend-card {
     background-color: oldlace;
     box-shadow: 5px 5px #551A8B;
-    margin: auto;
     padding: 15px;
+    margin: auto;
+    margin-top: 20px;
     width: fit-content;
     border: 1px black solid;
 } .friend-card:hover {
@@ -54,4 +57,25 @@ h2 > a:hover, h3 > a:hover {
 } .friend-card:hover .squiggle {
     background-image: url("assets/squiggle.svg");
     padding-bottom: 2px;
+} .friend-card img {
+    max-height: 320px;
+    max-width: 320px;
+}
+
+.friend-container {
+    display: flex;
+    flex-direction: row;
+} .friend-column {
+    width: 40%;
+    margin: auto;
+} .friend-column a {
+    display: contents;
+}
+
+@media(max-width: 800px){ 
+    .friend-column {
+        width: 80%;
+    } .friend-container {
+        flex-direction: column;
+    }
 }
