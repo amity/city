@@ -17,7 +17,9 @@ body {
 }
 
 footer {margin-top: 15%; margin-bottom: 15px; text-align: center;}
-#badges {margin: 15px;}
+#badges-80-15 {margin-top: 15px; margin-bottom: 10px;}
+#badges-large {margin-bottom: 10px;}
+#sitemap-link {margin: 5px;}
 
 a {text-decoration: none}
 a:hover {text-decoration: underline salmon; text-decoration:dashed}
