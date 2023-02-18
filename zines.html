@@ -18,7 +18,7 @@
             <button id="toggle-dh-reader" display="block" onclick="toggleReader()">read</button><br/>
             <i id="print-disclaimer">(it's better if you print it out though!)</i> 
             <div id="dh-reader" style="display: none">
-                <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.jpg" alt="zine-reader"/>
+                <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
                 <br />
                 <button id="dh-reader-prev" onclick="changePage(-1)" disabled>&#9664;</button>
                 <button id="dh-reader-next" onclick="changePage(1)">&#9654;</button>
@@ -49,7 +49,7 @@
         };
 
         let pageNumber = 0;
-        const pageSource = (pageNum) => `assets/zines/dh-pics/${pageNum}.jpg`;
+        const pageSource = (pageNum) => `assets/zines/dh-pics/${pageNum}.png`;
 
         const changePage = (increment) => {
             pageNumber += increment;
