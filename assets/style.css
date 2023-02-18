@@ -19,6 +19,7 @@ body {
 footer {margin-top: 15%; margin-bottom: 15px; text-align: center;}
 #badges-80-15 {margin-top: 15px; margin-bottom: 10px;}
 #badges-large {margin-bottom: 10px;}
+#badges-large img {margin: 0px 5px;}
 #sitemap-link {margin: 5px;}
 
 a {text-decoration: none}
