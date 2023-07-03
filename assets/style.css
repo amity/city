@@ -88,3 +88,58 @@ h2 > a:hover, h3 > a:hover {
 } .zine-card > *{
     margin: 5px;
 }
+
+/* Tumblr follow button stylings to avoid using their tracking iframe */
+#social-follow-button {
+    display:inline-block;
+    box-sizing:border-box;
+    height:20px;
+    border-radius:3px;
+    text-decoration:none;
+    font:bold 12px "Helvetica Neue",Helvetica,Arial,Sans-serif;
+    line-height:18px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+#social-follow-button .social-inner {
+    height:100%;
+    padding:0 5px
+}
+#social-follow-button .social-label {
+    display:inline-block;
+    height:100%;
+    max-width:172px;
+    padding-left:6px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden
+}
+#social-follow-button .social-logo-container {
+    float:left;
+    padding-top:2px;
+    width:9px
+}
+#social-follow-button .social-logo-svg {
+    height:12px;
+    fill: #fff;
+}
+#social-follow-button.tumblr-blue {
+    background-color:#001935;
+    color:#fff;
+    border:1px solid #001935
+}
+#social-follow-button.mastodon-purple {
+    background-color:#2F0C7A;
+    color:#fff;
+    border:1px solid #2F0C7A
+}
+#social-follow-button.instagram-fuchsia {
+    background-color:#E1306C;
+    color:#fff;
+    border:1px solid #E1306C
+}
+#social-follow-button.discord-grey {
+    background-color:#5865F2;
+    color:#fff;
+    border:1px solid #5865F2
+}
