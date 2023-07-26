@@ -14,49 +14,84 @@
         <h1>zines</h1>
         <div class="zine-card">
             <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
-            <div><a href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a href="assets/zines/assembly-instructions.pdf">assembly</a></div>
-            <button id="toggle-dh-reader" display="block" onclick="toggleReader()">read</button><br/>
-            <i id="print-disclaimer">(it's better if you print it out though!)</i> 
+            <div><a href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a href="assets/zines/assembly-instructions.pdf">assembly (split-fold)</a></div>
+            <button id="toggle-dh-reader" display="block" onclick="toggleReader(DATA_HAUNTING_KEY)">read</button><br/>
+            <i id="print-disclaimer">(they're better if you print them out though!)</i> 
             <div id="dh-reader" style="display: none">
                 <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
                 <br />
-                <button id="dh-reader-prev" onclick="changePage(-1)" disabled>&#9664;</button>
-                <button id="dh-reader-next" onclick="changePage(1)">&#9654;</button>
+                <button id="dh-reader-prev" onclick="changePage(-1, DATA_HAUNTING_KEY)" disabled>&#9664;</button>
+                <button id="dh-reader-next" onclick="changePage(1, DATA_HAUNTING_KEY)">&#9654;</button>
+            </div>
+        </div>
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">to all the beautiful things that leave me</h3>
+            <div><a href="assets/zines/transience.pdf">pdf</a> &#8226; <a href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <button id="toggle-transience-reader" display="block" onclick="toggleReader(ALL_THE_THINGS_THAT_LEAVE_ME_KEY)">read</button><br/>
+            <div id="transience-reader" style="display: none">
+                <img id="transience-reader-display" height="600px" width="450px" src="assets/zines/transience-pics/0.jpg" alt="zine-reader"/>
+                <br />
+                <button id="transience-reader-prev" onclick="changePage(-1, ALL_THE_THINGS_THAT_LEAVE_ME_KEY)" disabled>&#9664;</button>
+                <button id="transience-reader-next" onclick="changePage(1, ALL_THE_THINGS_THAT_LEAVE_ME_KEY)">&#9654;</button>
             </div>
         </div>
         <h2><a href="https://github.com/amity/city/tree/main/assets/zines">all files</a></h2>
         ...
         <div id="zine-files"></div>
+        <p>---</p>
+        <img src="assets/zines/banner.png" alt="banner" height="60px"/>
     </div>
 
     <script>
         // inline zine reader
-        const toggleButton = document.getElementById('toggle-dh-reader');
-        const dataHauntingReader = document.getElementById('dh-reader');
-        const dataHauntingDisplay = document.getElementById('dh-reader-display');
-        const prevBtn = document.getElementById('dh-reader-prev');
-        const nextBtn = document.getElementById('dh-reader-next');
+        const DATA_HAUNTING_KEY = 'dh';
+        const ALL_THE_THINGS_THAT_LEAVE_ME_KEY = 'transience';
 
-        const toggleReader = () => {
-            if(dataHauntingReader.style.display == 'none'){
-                dataHauntingReader.style.display = "inline-block";
-                toggleButton.innerHTML = 'hide reader';
+        const dataHaunting = {
+            key: DATA_HAUNTING_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-dh-reader'),
+            reader: document.getElementById('dh-reader'),
+            display: document.getElementById('dh-reader-display'),
+            prevBtn: document.getElementById('dh-reader-prev'),
+            nextBtn: document.getElementById('dh-reader-next'),
+            maxPageNum: 6,
+            fileType: 'png',
+        };
+        const transience = {
+            key: ALL_THE_THINGS_THAT_LEAVE_ME_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-transience-reader'),
+            reader: document.getElementById('transience-reader'),
+            display: document.getElementById('transience-reader-display'),
+            prevBtn: document.getElementById('transience-reader-prev'),
+            nextBtn: document.getElementById('transience-reader-next'),
+            maxPageNum: 4,
+            fileType: 'jpg',
+        };
+        const zines = [dataHaunting, transience];
+
+        const toggleReader = (key) => {
+            const selection = zines.find(zine => zine.key === key);
+            if(selection.reader.style.display == 'none'){
+                selection.reader.style.display = "inline-block";
+                selection.toggleButton.innerHTML = 'hide reader';
                 document.getElementById('print-disclaimer').style.display = 'none';
             } else {
-                dataHauntingReader.style.display = 'none';
-                toggleButton.innerHTML = 'show reader';
+                selection.reader.style.display = 'none';
+                selection.toggleButton.innerHTML = 'show reader';
             }
         };
 
-        let pageNumber = 0;
-        const pageSource = (pageNum) => `assets/zines/dh-pics/${pageNum}.png`;
+        const pageSource = (pageNum, key, fileType) => `assets/zines/${key}-pics/${pageNum}.${fileType}`;
 
-        const changePage = (increment) => {
-            pageNumber += increment;
-            dataHauntingDisplay.src = pageSource(pageNumber);
-            if(pageNumber == '6') nextBtn.disabled = true;
-            else if (pageNumber == '0') prevBtn.disabled = true;
-            else {nextBtn.disabled = false; prevBtn.disabled = false;} 
+        const changePage = (increment, key) => {
+            const selection = zines.find(zine => zine.key === key);
+            selection.pageNumber += increment;
+            selection.display.src = pageSource(selection.pageNumber, key, selection.fileType);
+            if(selection.pageNumber == selection.maxPageNum) selection.nextBtn.disabled = true;
+            else if (selection.pageNumber == '0') selection.prevBtn.disabled = true;
+            else {selection.nextBtn.disabled = false; selection.prevBtn.disabled = false;} 
         };
 
 

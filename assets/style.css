@@ -83,6 +83,9 @@ h2 > a:hover, h3 > a:hover {
     }
 }
 
+.zine-card {
+    margin: 30px;
+}
 .zine-card h3 {
     margin-bottom: 5px;
 } .zine-card > *{
@@ -142,4 +145,35 @@ h2 > a:hover, h3 > a:hover {
     background-color:#5865F2;
     color:#fff;
     border:1px solid #5865F2
+}
+
+.feed-container {
+    display: flex;
+    flex-direction: row;
+} .feed-column {
+    width: 40%;
+    margin: auto;
+} .feed-column a {
+    display: contents;
+}
+
+@media(max-width: 800px){ 
+    .feed-column {
+        width: 80%;
+    } .feed-container {
+        flex-direction: column;
+    }
+}
+
+.twitter-feed { 
+    min-height: 400px;
+    max-height: 60vh;
+    max-width: 50vw;
+    width: 100%;
+}
+
+.comic-rss-feed {
+    max-height: 500px;
+    max-width: 850px;
+    overflow: auto;
 }
