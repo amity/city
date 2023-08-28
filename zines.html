@@ -103,7 +103,9 @@
             let htmlString = '<div>';
             
             for (let file of data) {
-                htmlString += `<a href="${file.path}">${file.name}</a><br />`;
+                if (file.type == 'file') {
+                    htmlString += `<a href="${file.path}">${file.name}</a><br />`;
+                }
             }
 
             htmlString += '</div>';
