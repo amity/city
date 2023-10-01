@@ -27,6 +27,10 @@ body {
 .title-wrapper {
     align-items: center;
 }
+.page-subheader {
+    max-width: 80%;
+    display: inline-block;
+}
 
 
 @media(max-width: 800px){ 
