@@ -13,20 +13,20 @@
     <div style="text-align: center; margin-bottom: 10px;">
         <h1>zines</h1>
         <div class="zine-card">
-            <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
-            <div><a href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a href="assets/zines/assembly-instructions.pdf">assembly (split-fold)</a></div>
-            <button id="toggle-dh-reader" display="block" onclick="toggleReader(DATA_HAUNTING_KEY)">read</button><br/>
-            <i id="print-disclaimer">(they're better if you print them out though!)</i> 
-            <div id="dh-reader" style="display: none">
-                <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
+            <h3 style="margin-bottom: 5px;">i ruined it myself</h3>
+            <div><a target="_blank" href="assets/zines/ruined.pdf">pdf</a>&#8226; (fold pages in half; put 2nd inside 1st)</div>
+            <div><i id="print-disclaimer">(they're better if you print them out!)</i> </div>
+            <button id="toggle-ruined-reader" display="block" onclick="toggleReader(RUINED_IT_MYSELF_KEY)">read</button><br/>
+            <div id="ruined-reader" style="display: none">
+                <img id="ruined-reader-display" height="450px" width="600px" src="assets/zines/ruined-pics/0.jpg" alt="zine-reader"/>
                 <br />
-                <button id="dh-reader-prev" onclick="changePage(-1, DATA_HAUNTING_KEY)" disabled>&#9664;</button>
-                <button id="dh-reader-next" onclick="changePage(1, DATA_HAUNTING_KEY)">&#9654;</button>
+                <button id="ruined-reader-prev" onclick="changePage(-1, RUINED_IT_MYSELF_KEY)" disabled>&#9664;</button>
+                <button id="ruined-reader-next" onclick="changePage(1, RUINED_IT_MYSELF_KEY)">&#9654;</button>
             </div>
         </div>
         <div class="zine-card">
             <h3 style="margin-bottom: 5px;">to all the beautiful things that leave me</h3>
-            <div><a href="assets/zines/transience.pdf">pdf</a> &#8226; <a href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <div><a target="_blank" href="assets/zines/transience.pdf">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
             <button id="toggle-transience-reader" display="block" onclick="toggleReader(ALL_THE_THINGS_THAT_LEAVE_ME_KEY)">read</button><br/>
             <div id="transience-reader" style="display: none">
                 <img id="transience-reader-display" height="600px" width="450px" src="assets/zines/transience-pics/0.jpg" alt="zine-reader"/>
@@ -35,7 +35,29 @@
                 <button id="transience-reader-next" onclick="changePage(1, ALL_THE_THINGS_THAT_LEAVE_ME_KEY)">&#9654;</button>
             </div>
         </div>
-        <h2><a href="https://github.com/amity/city/tree/main/assets/zines">all files</a></h2>
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
+            <div><a target="_blank" href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a target="_blank" href="assets/zines/assembly-instructions.pdf">assembly (split-fold)</a></div>
+            <button id="toggle-dh-reader" display="block" onclick="toggleReader(DATA_HAUNTING_KEY)">read</button><br/>
+            <div id="dh-reader" style="display: none">
+                <img id="dh-reader-display" height="600px" width="450px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
+                <br />
+                <button id="dh-reader-prev" onclick="changePage(-1, DATA_HAUNTING_KEY)" disabled>&#9664;</button>
+                <button id="dh-reader-next" onclick="changePage(1, DATA_HAUNTING_KEY)">&#9654;</button>
+            </div>
+            <div class="zine-card">
+                <h3 style="margin-bottom: 5px;">the abc's of acab</h3>
+                <div><a target="_blank" href="assets/zines/abcs-printable.jpeg">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+                <button id="toggle-acab-reader" display="block" onclick="toggleReader(ABCS_OF_ACAB_KEY)">read</button><br/>
+                <div id="acab-reader" style="display: none">
+                    <img id="acab-reader-display" height="440px" width="550px" src="assets/zines/acab-pics/0.jpg" alt="zine-reader"/>
+                    <br />
+                    <button id="acab-reader-prev" onclick="changePage(-1, ABCS_OF_ACAB_KEY)" disabled>&#9664;</button>
+                    <button id="acab-reader-next" onclick="changePage(1, ABCS_OF_ACAB_KEY)">&#9654;</button>
+                </div>
+            </div>
+        </div>
+        <h2><a target="_blank" href="https://github.com/amity/city/tree/main/assets/zines">all files</a></h2>
         ...
         <div id="zine-files"></div>
         <p>---</p>
@@ -44,19 +66,21 @@
 
     <script>
         // inline zine reader
-        const DATA_HAUNTING_KEY = 'dh';
+        const RUINED_IT_MYSELF_KEY = 'ruined';
         const ALL_THE_THINGS_THAT_LEAVE_ME_KEY = 'transience';
+        const DATA_HAUNTING_KEY = 'dh';
+        const ABCS_OF_ACAB_KEY = 'acab';
 
-        const dataHaunting = {
-            key: DATA_HAUNTING_KEY,
+        const ruined = {
+            key: RUINED_IT_MYSELF_KEY,
             pageNumber: 0,
-            toggleButton: document.getElementById('toggle-dh-reader'),
-            reader: document.getElementById('dh-reader'),
-            display: document.getElementById('dh-reader-display'),
-            prevBtn: document.getElementById('dh-reader-prev'),
-            nextBtn: document.getElementById('dh-reader-next'),
-            maxPageNum: 6,
-            fileType: 'png',
+            toggleButton: document.getElementById('toggle-ruined-reader'),
+            reader: document.getElementById('ruined-reader'),
+            display: document.getElementById('ruined-reader-display'),
+            prevBtn: document.getElementById('ruined-reader-prev'),
+            nextBtn: document.getElementById('ruined-reader-next'),
+            maxPageNum: 4,
+            fileType: 'jpg',
         };
         const transience = {
             key: ALL_THE_THINGS_THAT_LEAVE_ME_KEY,
@@ -69,7 +93,29 @@
             maxPageNum: 4,
             fileType: 'jpg',
         };
-        const zines = [dataHaunting, transience];
+        const dataHaunting = {
+            key: DATA_HAUNTING_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-dh-reader'),
+            reader: document.getElementById('dh-reader'),
+            display: document.getElementById('dh-reader-display'),
+            prevBtn: document.getElementById('dh-reader-prev'),
+            nextBtn: document.getElementById('dh-reader-next'),
+            maxPageNum: 6,
+            fileType: 'png',
+        };
+        const acab = {
+            key: ABCS_OF_ACAB_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-acab-reader'),
+            reader: document.getElementById('acab-reader'),
+            display: document.getElementById('acab-reader-display'),
+            prevBtn: document.getElementById('acab-reader-prev'),
+            nextBtn: document.getElementById('acab-reader-next'),
+            maxPageNum: 4,
+            fileType: 'jpg',
+        };
+        const zines = [ruined, transience, dataHaunting, acab];
 
         const toggleReader = (key) => {
             const selection = zines.find(zine => zine.key === key);
