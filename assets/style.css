@@ -110,6 +110,16 @@ h2 > a:hover, h3 > a:hover {
 } .zine-card > *{
     margin: 5px;
 }
+#ruined-reader-display {
+    width: 80vw;
+    height: 60vw;
+    max-width: 106vh;
+    max-height: 80vh;
+}
+#acab-reader-display {
+    max-width: 80vw;
+    max-height: 64vw;
+}
 
 /* Tumblr follow button stylings to avoid using their tracking iframe */
 #social-follow-button {
