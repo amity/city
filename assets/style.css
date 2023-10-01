@@ -131,11 +131,6 @@ h2 > a:hover, h3 > a:hover {
     color:#fff;
     border:1px solid #001935
 }
-#social-follow-button.mastodon-purple {
-    background-color:#2F0C7A;
-    color:#fff;
-    border:1px solid #2F0C7A
-}
 #social-follow-button.instagram-fuchsia {
     background-color:#E1306C;
     color:#fff;
