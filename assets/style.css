@@ -16,6 +16,25 @@ body {
     text-align: center;
 }
 
+.site-title {
+    margin: 50px 50px 25px;
+    background-image: url("squiggle.svg");
+    padding-bottom: 2px;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.title-wrapper {
+    align-items: center;
+}
+
+
+@media(max-width: 800px){ 
+    .split {
+        flex-direction: column;
+    }
+}
+
 footer {margin-top: 15%; margin-bottom: 15px; text-align: center;}
 #badges-80-15 {margin-top: 15px; margin-bottom: 10px;}
 #badges-large {margin-bottom: 10px;}
@@ -84,7 +103,7 @@ h2 > a:hover, h3 > a:hover {
 }
 
 .zine-card {
-    margin: 30px;
+    margin: auto;
 }
 .zine-card h3 {
     margin-bottom: 5px;
