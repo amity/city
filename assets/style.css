@@ -16,6 +16,13 @@ body {
     text-align: center;
 }
 
+.flex {
+    display:flex
+}
+.inline {
+    display:inline
+}
+
 .site-title {
     margin: 50px 50px 25px;
     background-image: url("squiggle.svg");
@@ -202,4 +209,8 @@ h2 > a:hover, h3 > a:hover {
 .comic-rss-feed {
     max-height: 600px;
     overflow: auto;
+}
+
+#szf-header {
+    margin-top: 10%;
 }
