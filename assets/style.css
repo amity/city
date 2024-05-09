@@ -35,8 +35,14 @@ body {
     align-items: center;
 }
 .page-subheader {
-    max-width: 80%;
+    max-width: 60%;
     display: inline-block;
+}
+.mb8 {
+    margin-bottom: 8px;
+}
+.mt0 {
+    margin-top: 0px;
 }
 
 
