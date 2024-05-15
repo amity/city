@@ -181,6 +181,11 @@ h2 > a:hover, h3 > a:hover {
     color:#fff;
     border:1px solid #5865F2
 }
+#social-follow-button.facebook-blue {
+    background-color:#1877F2;
+    color:#fff;
+    border:1px solid #1877F2
+}
 
 .feed-container {
     display: flex;
