@@ -231,3 +231,19 @@ h2 > a:hover, h3 > a:hover {
 #szf-header {
     margin-top: 10%;
 }
+
+.blog-card {
+    background-color: oldlace;
+    box-shadow: 5px 5px #551A8B;
+    padding: 15px;
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    border: 1px black solid;
+} .blog-card:hover {
+    box-shadow: 5px 5px black;
+    background-color: mistyrose;
+} .blog-card img {
+    max-height: 320px;
+    max-width: 320px;
+}
