@@ -252,3 +252,7 @@ h2 > a:hover, h3 > a:hover {
     max-height: 320px;
     max-width: 320px;
 }
+
+.spaced div {
+    margin-top: 10px;
+}
