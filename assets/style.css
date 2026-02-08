@@ -58,7 +58,7 @@ body {
     }
 }
 
-footer {margin-top: 5%; margin-bottom: 15px; text-align: center;}
+footer {margin-top: 20px; margin-bottom: 15px; text-align: center;}
 #badges-80-15 {margin-top: 15px; margin-bottom: 10px;}
 #badges-large {margin-bottom: 10px; display: flex; justify-content: center; align-items: center;}
 #badges-large img {margin: 0px 3px;}
