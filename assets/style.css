@@ -126,7 +126,7 @@ h2 > a:hover, h3 > a:hover {
 }
 
 .zine-card {
-    margin: auto;
+    margin: 0px auto 20px;
 }
 .zine-card h3 {
     margin-bottom: 5px;

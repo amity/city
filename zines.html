@@ -12,16 +12,39 @@
 
     <div style="text-align: center; margin-bottom: 10px;">
         <h1>zines</h1>
+        <div><i id="print-disclaimer">(they're better if you print them out!)</i> </div>
+        <br />
         <div class="zine-card">
             <h3 style="margin-bottom: 5px;">i ruined it myself</h3>
             <div><a target="_blank" href="assets/zines/ruined.pdf">pdf</a>&#8226; (fold pages in half; put 2nd inside 1st)</div>
             <button id="toggle-ruined-reader" display="block" onclick="toggleReader(RUINED_IT_MYSELF_KEY)">read</button><br/>
-            <div><i id="print-disclaimer">(they're better if you print them out!)</i> </div>
             <div id="ruined-reader" style="display: none">
                 <img id="ruined-reader-display" src="assets/zines/ruined-pics/0.jpg" alt="zine-reader"/>
                 <br />
                 <button id="ruined-reader-prev" onclick="changePage(-1, RUINED_IT_MYSELF_KEY)" disabled>&#9664;</button>
                 <button id="ruined-reader-next" onclick="changePage(1, RUINED_IT_MYSELF_KEY)">&#9654;</button>
+            </div>
+        </div>
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">david cronenberg and the men he penetrates</h3>
+            <div><a target="_blank" href="assets/zines/cronenberg.pdf">pdf</a>&#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <button id="toggle-cronenberg-reader" display="block" onclick="toggleReader(CRONENBERG_KEY)">read</button><br/>
+            <div id="cronenberg-reader" style="display: none">
+                <img id="cronenberg-reader-display" width="681px" height="600px"  src="assets/zines/cronenberg-pics/0.jpg" alt="zine-reader"/>
+                <br />
+                <button id="cronenberg-reader-prev" onclick="changePage(-1, CRONENBERG_KEY)" disabled>&#9664;</button>
+                <button id="cronenberg-reader-next" onclick="changePage(1, CRONENBERG_KEY)">&#9654;</button>
+            </div>
+        </div>
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
+            <div><a target="_blank" href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a target="_blank" href="assets/zines/assembly-instructions.pdf">assembly (split-fold)</a></div>
+            <button id="toggle-dh-reader" display="block" onclick="toggleReader(DATA_HAUNTING_KEY)">read</button><br/>
+            <div id="dh-reader" style="display: none">
+                <img id="dh-reader-display" width="450px" height="600px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
+                <br />
+                <button id="dh-reader-prev" onclick="changePage(-1, DATA_HAUNTING_KEY)" disabled>&#9664;</button>
+                <button id="dh-reader-next" onclick="changePage(1, DATA_HAUNTING_KEY)">&#9654;</button>
             </div>
         </div>
         <div class="zine-card">
@@ -36,25 +59,14 @@
             </div>
         </div>
         <div class="zine-card">
-            <h3 style="margin-bottom: 5px;">data haunting: a digital ghost story</h3>
-            <div><a target="_blank" href="assets/zines/data-haunting.pdf">pdf</a> &#8226; <a target="_blank" href="assets/zines/assembly-instructions.pdf">assembly (split-fold)</a></div>
-            <button id="toggle-dh-reader" display="block" onclick="toggleReader(DATA_HAUNTING_KEY)">read</button><br/>
-            <div id="dh-reader" style="display: none">
-                <img id="dh-reader-display" width="450px" height="600px" src="assets/zines/dh-pics/0.png" alt="zine-reader"/>
+            <h3 style="margin-bottom: 5px;">the abc's of acab</h3>
+            <div><a target="_blank" href="assets/zines/abcs-printable.jpeg">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <button id="toggle-acab-reader" display="block" onclick="toggleReader(ABCS_OF_ACAB_KEY)">read</button><br/>
+            <div id="acab-reader" style="display: none">
+                <img id="acab-reader-display" width="550px" height="440px" src="assets/zines/acab-pics/0.jpg" alt="zine-reader"/>
                 <br />
-                <button id="dh-reader-prev" onclick="changePage(-1, DATA_HAUNTING_KEY)" disabled>&#9664;</button>
-                <button id="dh-reader-next" onclick="changePage(1, DATA_HAUNTING_KEY)">&#9654;</button>
-            </div>
-            <div class="zine-card">
-                <h3 style="margin-bottom: 5px;">the abc's of acab</h3>
-                <div><a target="_blank" href="assets/zines/abcs-printable.jpeg">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
-                <button id="toggle-acab-reader" display="block" onclick="toggleReader(ABCS_OF_ACAB_KEY)">read</button><br/>
-                <div id="acab-reader" style="display: none">
-                    <img id="acab-reader-display" width="550px" height="440px" src="assets/zines/acab-pics/0.jpg" alt="zine-reader"/>
-                    <br />
-                    <button id="acab-reader-prev" onclick="changePage(-1, ABCS_OF_ACAB_KEY)" disabled>&#9664;</button>
-                    <button id="acab-reader-next" onclick="changePage(1, ABCS_OF_ACAB_KEY)">&#9654;</button>
-                </div>
+                <button id="acab-reader-prev" onclick="changePage(-1, ABCS_OF_ACAB_KEY)" disabled>&#9664;</button>
+                <button id="acab-reader-next" onclick="changePage(1, ABCS_OF_ACAB_KEY)">&#9654;</button>
             </div>
         </div>
         <h2><a target="_blank" href="https://github.com/amity/city/tree/main/assets/zines">all files</a></h2>
@@ -70,6 +82,7 @@
         const ALL_THE_THINGS_THAT_LEAVE_ME_KEY = 'transience';
         const DATA_HAUNTING_KEY = 'dh';
         const ABCS_OF_ACAB_KEY = 'acab';
+        const CRONENBERG_KEY = 'cronenberg';
 
         const ruined = {
             key: RUINED_IT_MYSELF_KEY,
@@ -79,6 +92,17 @@
             display: document.getElementById('ruined-reader-display'),
             prevBtn: document.getElementById('ruined-reader-prev'),
             nextBtn: document.getElementById('ruined-reader-next'),
+            maxPageNum: 4,
+            fileType: 'jpg',
+        };
+        const cronenberg = {
+            key: CRONENBERG_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-cronenberg-reader'),
+            reader: document.getElementById('cronenberg-reader'),
+            display: document.getElementById('cronenberg-reader-display'),
+            prevBtn: document.getElementById('cronenberg-reader-prev'),
+            nextBtn: document.getElementById('cronenberg-reader-next'),
             maxPageNum: 4,
             fileType: 'jpg',
         };
@@ -115,7 +139,7 @@
             maxPageNum: 4,
             fileType: 'jpg',
         };
-        const zines = [ruined, transience, dataHaunting, acab];
+        const zines = [ruined, cronenberg, transience, dataHaunting, acab];
 
         const toggleReader = (key) => {
             const selection = zines.find(zine => zine.key === key);
