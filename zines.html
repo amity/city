@@ -16,7 +16,7 @@
         <br />
         <div class="zine-card">
             <h3 style="margin-bottom: 5px;">i ruined it myself</h3>
-            <div><a target="_blank" href="assets/zines/ruined.pdf">pdf</a>&#8226; (fold pages in half; put 2nd inside 1st)</div>
+            <div><a target="_blank" href="assets/zines/ruined.pdf">pdf</a> &#8226; (fold pages in half; put 2nd inside 1st)</div>
             <button id="toggle-ruined-reader" display="block" onclick="toggleReader(RUINED_IT_MYSELF_KEY)">read</button><br/>
             <div id="ruined-reader" style="display: none">
                 <img id="ruined-reader-display" src="assets/zines/ruined-pics/0.jpg" alt="zine-reader"/>
@@ -25,9 +25,21 @@
                 <button id="ruined-reader-next" onclick="changePage(1, RUINED_IT_MYSELF_KEY)">&#9654;</button>
             </div>
         </div>
+        
+        <div class="zine-card">
+            <h3 style="margin-bottom: 5px;">bringing sex(y) back</h3>
+            <div><a target="_blank" href="assets/zines/transsexed.pdf">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <button id="toggle-transsexed-reader" display="block" onclick="toggleReader(TRANSSEXED_KEY)">read</button><br/>
+            <div id="transsexed-reader" style="display: none">
+                <img id="transsexed-reader-display" width="780px" height="600px" src="assets/zines/transsexed-pics/0.jpg" alt="zine-reader"/>
+                <br />
+                <button id="transsexed-reader-prev" onclick="changePage(-1, TRANSSEXED_KEY)" disabled>&#9664;</button>
+                <button id="transsexed-reader-next" onclick="changePage(1, TRANSSEXED_KEY)">&#9654;</button>
+            </div>
+        </div>
         <div class="zine-card">
             <h3 style="margin-bottom: 5px;">david cronenberg and the men he penetrates</h3>
-            <div><a target="_blank" href="assets/zines/cronenberg.pdf">pdf</a>&#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
+            <div><a target="_blank" href="assets/zines/cronenberg.pdf">pdf</a> &#8226; <a target="_blank" href="https://en.wikibooks.org/wiki/Zine_Making/Putting_pages_together#An_8-sided_zine_from_1_sheet_with_1_cut">assembly (eightfold)</a></div>
             <button id="toggle-cronenberg-reader" display="block" onclick="toggleReader(CRONENBERG_KEY)">read</button><br/>
             <div id="cronenberg-reader" style="display: none">
                 <img id="cronenberg-reader-display" width="681px" height="600px"  src="assets/zines/cronenberg-pics/0.jpg" alt="zine-reader"/>
@@ -83,6 +95,7 @@
         const DATA_HAUNTING_KEY = 'dh';
         const ABCS_OF_ACAB_KEY = 'acab';
         const CRONENBERG_KEY = 'cronenberg';
+        const TRANSSEXED_KEY = 'transsexed';
 
         const ruined = {
             key: RUINED_IT_MYSELF_KEY,
@@ -92,6 +105,17 @@
             display: document.getElementById('ruined-reader-display'),
             prevBtn: document.getElementById('ruined-reader-prev'),
             nextBtn: document.getElementById('ruined-reader-next'),
+            maxPageNum: 4,
+            fileType: 'jpg',
+        };
+        const transsexed = {
+            key: TRANSSEXED_KEY,
+            pageNumber: 0,
+            toggleButton: document.getElementById('toggle-transsexed-reader'),
+            reader: document.getElementById('transsexed-reader'),
+            display: document.getElementById('transsexed-reader-display'),
+            prevBtn: document.getElementById('transsexed-reader-prev'),
+            nextBtn: document.getElementById('transsexed-reader-next'),
             maxPageNum: 4,
             fileType: 'jpg',
         };
@@ -139,7 +163,7 @@
             maxPageNum: 4,
             fileType: 'jpg',
         };
-        const zines = [ruined, cronenberg, transience, dataHaunting, acab];
+        const zines = [ruined, transsexed, cronenberg, transience, dataHaunting, acab];
 
         const toggleReader = (key) => {
             const selection = zines.find(zine => zine.key === key);
